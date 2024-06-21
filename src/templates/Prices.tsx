@@ -1,57 +1,60 @@
 'use client';
 
-import Link from 'next/link';
+import { Checkbox } from 'flowbite-react';
 
-import { prices } from '@/utils/prices';
+import Input from '@/components/input';
 
 export function Pricing() {
   return (
     <div
       id="pricing"
-      className="flex h-screen w-full flex-col items-center bg-primary-400 px-4 py-8 text-center md:p-16"
+      className="flex h-screen w-full flex-col gap-8 bg-white p-4  md:flex-row md:gap-20 md:p-16"
     >
-      <h1 className="mb-4 text-[32px] font-semibold text-white md:mb-8">
-        Pricing
-      </h1>
-      <p className="mb-4 text-[16px] text-white/80 md:mb-8 md:text-[20px]">
-        Nous offrons plusieurs paquets pour l’achat de nos fiches.
-      </p>
-      <div className="mt-8 flex w-full flex-col gap-8 md:mt-12 md:flex-row">
-        <div className="flex w-full flex-col items-center justify-between gap-4 rounded-md bg-primary-200 p-4 text-center text-black md:h-full md:w-[30%] md:gap-8 md:p-8">
-          <h4 className="-rotate-12 text-[32px] font-bold md:text-[68px]">
-            -5%
-          </h4>
-          <p className="text-[16px] md:text-[20px]">
-            Pour les instutitions et les ecoles
-          </p>
-          <Link
-            href="#contact"
-            className="rounded-md border border-primary-300 px-4 py-2"
-          >
-            Nous contacter
-          </Link>
-        </div>
-        <div className="grid w-full grid-cols-1 gap-4 md:w-[70%] md:grid-cols-3 md:gap-8">
-          {prices.map((price, index) => {
-            return (
-              <div
-                key={index}
-                className="flex/row flex rounded-md bg-primary-100 text-black transition-all duration-300 ease-in-out hover:bg-primary-100/80"
-              >
-                <h4 className=" mb-2 flex h-full w-[50%] items-center justify-center gap-4 rounded-l-md bg-primary text-center text-[20px] font-bold md:mb-4 md:text-[32px]">
-                  {price.price} <br />
-                  <span className="text-[13px]">USD</span>
-                </h4>
-                <div className="flex h-full w-[50%] flex-row items-center justify-center   gap-4 md:flex-col md:gap-0 ">
-                  <p className="text-[14px] font-extrabold md:text-[32px]">
-                    {price.description}
-                  </p>
-                  <p className="text-[14px] font-bold">Fiches</p>
-                </div>
+      <div className="w-full md:w-[50%]">
+        <h1 className="mb-8 text-[24px] font-semibold text-primary-400 md:mb-20 md:text-[32px]">
+          Tarifs
+        </h1>
+        <form className="flex w-full flex-col gap-4 md:w-[70%] md:gap-16">
+          <Input
+            label="Quel est votre budget?"
+            placeholder={''}
+            name={''}
+            style="rounded-[24px]"
+            bgColor="mt-4 h-[40px] w-full rounded-[24px] border border-primary-400/40"
+          />
+          <div className={`flex-1 sm:mb-5`}>
+            <span className="mb-6 flex flex-row items-center gap-1 text-[16px] font-semibold text-primary-400/90">
+              Dug Assitant est partenaire avec mon ecole
+            </span>
+            <div className="flex flex-row items-center gap-12">
+              <div className="flex flex-row items-center gap-4">
+                <Checkbox className="h-6 w-6 border border-primary-400/90 bg-white" />
+                <span className="text-[18px] font-semibold text-primary-400/90">
+                  Oui
+                </span>
               </div>
-            );
-          })}
+              <div className="flex flex-row items-center gap-4">
+                <Checkbox className="h-6 w-6 border border-primary-400/90 bg-white" />
+                <span className="text-[18px] font-semibold text-primary-400/90">
+                  Non
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div className="flex w-full flex-col items-center justify-center gap-4 rounded-[24px] bg-primary-400 p-8 md:h-full md:w-[50%] md:gap-16 md:p-16">
+        <div className="flex flex-col items-center text-white">
+          <h2 className="text-center text-[58px] font-bold md:text-[120px]">
+            102
+          </h2>
+          <p className=" text-center text-[16px] md:text-[32px]">
+            Fiches d’exploitations de matrices
+          </p>
         </div>
+        <button className="w-[60%] rounded-lg bg-white py-2 font-bold text-black md:w-[50%] md:py-3">
+          Acheter
+        </button>
       </div>
     </div>
   );

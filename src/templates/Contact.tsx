@@ -48,9 +48,9 @@ export function Contact() {
   return (
     <div
       id="contact"
-      className="flex h-screen w-full flex-col items-center justify-center  bg-primary-100 px-4 py-8 md:p-16"
+      className="flex h-screen w-full flex-col bg-primary-100 px-4  py-8 md:items-center md:justify-center md:p-16"
     >
-      <h1 className="mb-8 text-[32px] font-semibold text-primary-400">
+      <h1 className="mb-8 text-[24px] font-semibold text-primary-400 md:text-[32px]">
         Contact
       </h1>
       {showRecaptcha && (

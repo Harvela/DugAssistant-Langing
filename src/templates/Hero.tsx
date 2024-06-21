@@ -2,64 +2,17 @@
 
 import 'react-toastify/dist/ReactToastify.css';
 
+import { Navbar } from 'flowbite-react';
 import React from 'react';
-import { toast } from 'react-toastify';
-
-import { Recaptcha } from '@/components/recaptcha';
-import { Navbar } from '@/navigation/Navbar';
 
 import { SparklesCore } from '../components/sparkles';
 
 const Hero: React.FC = () => {
-  const [email, setEmail] = React.useState('');
-  const [showRecaptcha, setShowRecaptcha] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const sendData = async () => {
-    setIsLoading(true);
-    const response = await fetch(
-      'https://admin.harvely.com/api/waiting-list-dug-assistants',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer 5d5a8ca3f0f2bc86426ab60cac04771576338d956b828a394033b6858839b6ddc9ff66505bb2749c479dab84a05a150713fe3e5755221b94808d249d00bbae832dbe8da37a9dd2c6f5bf580c3dc6bbde2b69c438d26f4edbefa42229b2f9e53353bc48870d62695e4b74d83ea5f1c103361422a323b189b1fb75830f9c31fb0e`,
-        },
-        body: JSON.stringify({ data: { email } }),
-      },
-    );
-    setIsLoading(false);
-    if (response.ok) {
-      setEmail('');
-      setShowRecaptcha(false);
-      toast.success(
-        'Merci de votre inscription, un membre de notre équipe va bientot vous contacter.',
-        {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        },
-      );
-    }
-  };
-
   return (
     <div
       id="home"
       className="relative flex h-screen w-full flex-col items-center justify-center bg-primary-400 px-4"
     >
-      {showRecaptcha && (
-        <Recaptcha
-          onChange={(value: any) => {
-            console.log('Captcha value:', value);
-            setShowRecaptcha(false);
-            if (value) sendData();
-          }}
-        />
-      )}
       <div className="absolute inset-0 h-screen w-full">
         <SparklesCore
           id="tsparticlesfullpage"
@@ -72,44 +25,21 @@ const Hero: React.FC = () => {
         />
       </div>
       <Navbar />
-      <div className="flex max-w-[1000px] flex-col items-center justify-center">
+      <div className="flex max-w-[1500px] flex-col items-center justify-center">
         <span className="text-md relative z-20 mb-4 text-center text-white/80 md:text-xl lg:text-xl">
           Dug Assistant - Ed TECH
         </span>
-        <h1 className="relative z-20 mb-24 text-center text-xl font-bold text-white md:mb-12 md:text-5xl lg:text-5xl">
-          Accélérez la préparation de vos leçons avec l&apos;intelligence
-          artificielle.
+        <h1 className="relative z-20 mb-24 text-center text-xl font-bold text-white md:text-5xl lg:text-5xl">
+          Faites vos fiches de preparation dans
+          <span className="mx-2 text-[#F8AB5D]">moins de 5 minutes</span>
+          avec l’intelligence artificielle.
         </h1>
-        <div className="flex w-full flex-col items-center justify-between rounded-lg bg-white p-2 md:flex-row md:p-0">
-          <input
-            name="email"
-            placeholder="Entrez votre address mail"
-            className="z-50 w-full rounded-lg p-4 text-center md:w-[70%] md:text-start"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button
-            className="z-[10000] w-full rounded-lg bg-primary-400 p-2 text-white md:mx-4 md:w-[30%] md:px-8"
-            onClick={() => {
-              if (isLoading) return;
-              const emailRegex =
-                /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-              if (!emailRegex.test(email)) {
-                toast.error('Veuillez entrer une adresse mail valide', {
-                  position: 'top-right',
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                });
-              } else {
-                setShowRecaptcha(true);
-              }
-            }}
-          >
-            {!isLoading ? "Rejoindre la liste d'attente" : 'En cours ...'}
+        <div className="flex w-full flex-col items-center justify-center gap-2 md:flex-row">
+          <button className="z-[10000] w-full rounded-xl bg-white p-3 text-primary-400 md:mx-4 md:w-[20%]">
+            Generer les fiches
+          </button>
+          <button className="z-[10000] w-full rounded-xl border-2 border-white p-3 text-white md:mx-4 md:w-[20%]">
+            Voir les exemples
           </button>
         </div>
       </div>
