@@ -25,6 +25,10 @@ export function Navbar() {
       name: 'Gallerie',
       link: '/gallery',
     },
+    {
+      name: 'Contact',
+      link: '/Contact',
+    },
   ];
 
   const toggleMenu = () => {
@@ -32,7 +36,7 @@ export function Navbar() {
   };
 
   return (
-    <div className="z-10000 fixed mb-8 w-full border-b-[1px] border-primary-400/10 bg-white px-8 py-4 md:px-16 md:py-6">
+    <div className="z-10000 fixed mb-8 w-full border-b-[1px] border-primary-400/10 bg-white px-8 py-4 md:px-16 md:py-2">
       <div className="hidden flex-row items-center justify-between md:flex">
         <div className="flex flex-row items-center gap-2">
           <img src="/logo.png" alt="Logo" className="h-12 w-auto" />
@@ -47,7 +51,7 @@ export function Navbar() {
             <Link
               key={`link-${idx}`}
               href={navItem.link}
-              className="text-[18px] font-medium text-primary-400"
+              className="text-[16px] font-medium text-primary-400"
             >
               {navItem.name}
             </Link>
@@ -55,7 +59,7 @@ export function Navbar() {
           <a
             href="https://app.dugassistant.com"
             target="_blank"
-            className="relative rounded-md bg-primary-400 px-4 py-2 text-[16px] font-medium text-white shadow-sm shadow-primary-400"
+            className="relative rounded-md bg-primary-400 px-4 py-2 text-[1rem] font-medium text-white shadow-sm shadow-primary-400"
           >
             <span>Se connecter</span>
           </a>

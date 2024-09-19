@@ -48,10 +48,10 @@ export function Contact() {
   return (
     <div
       id="contact"
-      className="flex h-screen w-full flex-col bg-primary-100 px-4  py-8 md:items-center md:justify-center md:p-16"
+      className="mb-8 mt-10 flex h-screen w-full flex-col px-4 py-8 md:items-center md:justify-center md:pt-24"
     >
-      <h1 className="mb-8 text-[24px] font-semibold text-primary-400 md:text-[32px]">
-        Contact
+      <h1 className="mb-8 text-[20px] font-semibold text-primary-400 md:text-[32px]">
+        Contact our team!
       </h1>
       {showRecaptcha && (
         <Recaptcha
@@ -61,13 +61,31 @@ export function Contact() {
           }}
         />
       )}
-      <div className="w-full rounded-lg bg-primary-300/20 p-8 shadow-sm shadow-black/20 md:w-[60%]">
+      <div className="w-full rounded-lg p-8 shadow-sm shadow-black/20 md:w-[50%]">
         <div className="flex flex-col md:flex-row md:items-center md:gap-8">
           <Input
             name=""
-            label="Full name"
+            label="Nom"
             placeholder=""
-            bgColor="mb-4 h-[40px] w-full rounded-md border border-primary-300/20 bg-primary-300/20"
+            bgColor="mb-4 h-[40px] w-full rounded-md border border-primary-300/20 focus:border-[#616161]"
+            onChange={(e: any) => setFullname(e)}
+            defaultValue={fullname}
+          />
+          <Input
+            name=""
+            label="Post-nom"
+            placeholder=""
+            bgColor="mb-4 h-[40px] w-full rounded-md border border-primary-300/20"
+            onChange={(e: any) => setEmail(e)}
+            defaultValue={email}
+          />
+        </div>
+        <div className="flex flex-col md:flex-row md:items-center md:gap-8">
+          <Input
+            name=""
+            label="Telephone"
+            placeholder=""
+            bgColor="mb-4 h-[40px] w-full rounded-md border border-primary-300/20 focus:border-[#616161]"
             onChange={(e: any) => setFullname(e)}
             defaultValue={fullname}
           />
@@ -75,14 +93,14 @@ export function Contact() {
             name=""
             label="Email"
             placeholder=""
-            bgColor="mb-4 h-[40px] w-full rounded-md border border-primary-300/20 bg-primary-300/20"
+            bgColor="mb-4 h-[40px] w-full rounded-md border border-primary-300/20"
             onChange={(e: any) => setEmail(e)}
             defaultValue={email}
           />
         </div>
         <textarea
           placeholder="Message"
-          className="mb-4 h-[150px] w-full rounded-md border border-primary-300/20 bg-primary-300/20"
+          className="mb-4 h-[150px] w-full rounded-md border border-primary-300/20"
           onChange={(e: any) => setMessage(e.target.value)}
           value={message}
         />
@@ -96,6 +114,7 @@ export function Contact() {
           {isLoading ? 'Envoi ...' : 'Nous contacter'}
         </button>
       </div>
+      <div></div>
     </div>
   );
 }

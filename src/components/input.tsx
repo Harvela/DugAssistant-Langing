@@ -39,7 +39,7 @@ const Input: React.FC<Props> = (props: Props) => {
   return (
     <div className={`flex-1 sm:mb-5`}>
       {label && (
-        <span className="mb-2 flex flex-row items-center gap-1 text-[16px] font-semibold text-primary-400/90">
+        <span className="mb-2 flex flex-row items-center gap-1 text-[13px] font-light text-primary-400/90">
           {label}
           {icon}
         </span>
