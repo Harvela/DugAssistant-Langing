@@ -61,7 +61,7 @@ export function Contact() {
           }}
         />
       )}
-      <div className="my-8 grid w-[90%] grid-cols-1 gap-4 md:grid-cols-3 md:gap-8 ">
+      <div className="my-8 grid w-[90%] grid-cols-1 gap-4 md:grid-cols-3 md:gap-10 ">
         <div className="flex items-center gap-8 rounded-md bg-primary-500 px-4 py-6">
           <div className="w-[50px] rounded-full bg-white p-4 ">
             <svg
