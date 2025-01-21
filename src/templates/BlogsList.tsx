@@ -52,11 +52,11 @@ const BlogList: React.FC = () => {
     <div id="blog" className="mx-auto px-4 py-16 md:px-32">
       <div className="mb-6">
         <h1 className="text-[24px] font-bold text-back-100 dark:text-white md:text-[32px]">
-          Nos Blogs
+          Nos Articles
         </h1>
-        <p className="mt-4 text-[13px] font-light text-black/60 dark:text-white/80 md:text-[18px]">
-          Découvrez les derniers articles et ressources sur les outils, la
-          productivité, et les meilleures pratiques.
+        <p className="mt-4 text-[13px] font-light text-black/70 dark:text-white/80 md:text-[16px]">
+          Découvrez des conseils pratiques et les dernières actualités pour
+          transformer votre expérience d&apos;enseignement avec DugAssistant.
         </p>
       </div>
       {/* Grille responsive */}
