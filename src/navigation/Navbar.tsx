@@ -83,7 +83,7 @@ const Navbar = () => {
           <a
             href="https://app.dugassistant.com"
             target="_blank"
-            className="relative rounded-md border-2 border-back-100 px-6 py-2 text-[13px] font-medium text-back-100 shadow-sm shadow-primary-400 hover:border-none hover:bg-black hover:text-primary-500 dark:border-white dark:bg-back-100/10 dark:text-white"
+            className="relative rounded-md border-2 border-back-100 px-6 py-2 text-[13px] font-medium text-back-100 shadow-sm shadow-primary-400 transition-all duration-300 ease-in-out hover:border-transparent hover:bg-black hover:text-primary-500 dark:border-white dark:bg-back-100/10 dark:text-white dark:hover:border-transparent"
           >
             <span>Se connecter</span>
           </a>
